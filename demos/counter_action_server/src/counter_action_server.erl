@@ -47,9 +47,7 @@ handle_cast(
     ),
     {noreply, S}.
 
-handle_info({next_step, UUID, L, Counter}, #state{counter_action_server = AS} = S) when
-    Counter < 0
-->
+handle_info({next_step, UUID, L, 0}, #state{counter_action_server = AS} = S) ->
     List = lists:reverse(L),
     io:format("Returning result: ~p\n", [List]),
     ros_action_server:publish_result(AS, UUID, #rosie_demos_msgs_counter_get_result_rp{
