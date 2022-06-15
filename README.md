@@ -1,9 +1,9 @@
 # ROSIE DEMOS
 
-These demos are very similar to some popular ROS2 example packages.
+These demos are very similar to a few popular ROS2 example packages.
 If you just read a ROS2 tutorial on how to write a node, you should be familiar with ROS Messages, Services, Actions and Parameters.
 
-In this repo you will find good examples that show what feature we offer, and how the Erlang API works.
+In this repo you will find good examples that show what features we offer, and how the Erlang API works.
 
 ## Minimal Requirements
 
@@ -15,7 +15,7 @@ So if you are on Windows 10/11 we suggest to use [WSL](https://docs.microsoft.co
 
 ## Additional ROS2 Requirements
 
-* Any Working installation of ROS2 to test the interoperability
+* Any working installation of ROS2 to test the interoperability
 
 We suggest to use [ROS2 galactic](https://docs.ros.org/en/galactic/Installation.html). If you have another ROS2 distro then is best to set cyclone_dds as RMW_IMPLEMENTATION
 
@@ -23,9 +23,9 @@ Please see [Working-with-multiple-RMW-implementations](https://docs.ros.org/en/g
 
 ## Tests against ROS2
 
-All examples can let you experiment how ROSiE is able to transparently talk to the official ROS2 nodes. We generate Erlang interfaces to serialize data in the same way ROS2 does. Plus, by sharing the same wire protocol, we can mix ROSiE and ROS2 nodes in the same network.
+All examples can let you experiment how ROSiE is able to transparently talk to common ROS2 nodes. We generate Erlang interfaces to serialize data in the same way ROS2 does. Plus, by sharing the same wire protocol, we can mix ROSiE and ROS2 nodes in the same network.
 
-Here are some examples to test interoperability:
+Here are some examples to test the interoperability:
 
 ### listener
 
