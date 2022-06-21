@@ -27,17 +27,19 @@ All examples can let you experiment how ROSiE is able to transparently talk to c
 
 Here are some examples to test the interoperability:
 
-### listener
+### Test using `rebar3`
+
+#### `listener`
 
     rebar3 shell --apps listener
     RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_py talker
 
-### talker
+#### `talker`
 
     rebar3 shell --apps talker
     RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_py listener
 
-### Turtle controller
+#### Turtle controller
 
 Write commands on the shell to send them to the turtle on the screen.
 
@@ -49,3 +51,44 @@ Write commands on the shell to send them to the turtle on the screen.
     turtle ! back.
     turtle ! right.
     turtle ! left.
+
+### Test using `colcon-rebar3`
+
+Install `colcon-rebar3` using:
+
+    python -m pip install -U git+https://github.com/rosie-project/colcon-rebar3.git
+
+Create a workspace and download the examples inside it
+
+    mkdir -p ~/erlang_ws/src
+    cd ~/erlang_ws
+    curl -skL https://raw.githubusercontent.com/dagyu/rosie_demos/main/ros2_erlang.repos | vcs import src
+
+Type `colcon list` inside the workspace and you should see:
+
+    ~/erlang_ws » colcon list
+    rosie_demos	src/rosie_demos	(rebar3)
+    rosie_demos_msgs	src/rosie_demos_msgs	(ros.ament_cmake)
+
+If the output is something like this now you can build your workspace using `colcon`:
+
+    colcon build --rebar3-release-args="--all"
+
+If the build terminate successfully, you have to activate the workspace and then you can use a ROSiE package like a ROS2 package
+
+    source ~/erlang_ws/install/setup.bash
+
+#### `listener` using ros2cli
+
+    ros2 run rosie_demos listener foreground 
+    RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_py talker
+
+#### `talker` using ros2cli
+
+    ros2 run rosie_demos talker foreground
+    RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_py listener
+
+#### `counter_action_server` using ros2cli
+
+    ros2 run rosie_demos counter_action_server foreground
+    RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 action send_goal /counter rosie_demos_msgs/action/Counter "{until: 10}" --feedback
