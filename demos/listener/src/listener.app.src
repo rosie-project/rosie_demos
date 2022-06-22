@@ -1,15 +1,16 @@
-{application, listener,
- [{description, "Example listener"},
-  {vsn, "0.1.0"},
-  {registered, []},
-  {mod, {listener_app, []}},
-  {applications,
-   [kernel,
-    stdlib,
-    rosie_rclerl
-   ]},
-  {env,[]},
-  {modules, []},
-  {licenses, ["Apache 2.0"]},
-  {links, []}
- ]}.
+{application, listener, [
+    {description, "Example listener"},
+    {vsn, "0.1.0"},
+    {registered, []},
+    {mod, {listener_app, []}},
+    {applications, [
+        kernel,
+        stdlib,
+        rosie_rclerl,
+        std_msgs
+    ]},
+    {env, []},
+    {modules, []},
+    {licenses, ["Apache 2.0"]},
+    {links, []}
+]}.
