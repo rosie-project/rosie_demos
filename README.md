@@ -62,7 +62,7 @@ Create a workspace and download the examples inside it
 
     mkdir -p ~/erlang_ws/src
     cd ~/erlang_ws
-    curl -skL https://raw.githubusercontent.com/dagyu/rosie_demos/main/ros2_erlang.repos | vcs import src
+    curl -skL https://raw.githubusercontent.com/rosie-project/rosie_demos/main/ros2_erlang.repos | vcs import src
 
 Type `colcon list` inside the workspace and you should see:
 
@@ -87,8 +87,3 @@ If the build terminate successfully, you have to activate the workspace and then
 
     ros2 run rosie_demos talker foreground
     RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_py listener
-
-#### `counter_action_server` using ros2cli
-
-    ros2 run rosie_demos counter_action_server foreground
-    RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 action send_goal /counter rosie_demos_msgs/action/Counter "{until: 10}" --feedback

@@ -1,9 +1,5 @@
 repositories:
   rosie_demos:
     type: git
-    url: https://github.com/dagyu/rosie_demos.git
-    version: main
-  rosie_demos_msgs:
-    type: git
-    url: https://github.com/dagyu/rosie_demos_msgs.git
+    url: https://github.com/rosie-project/rosie_demos.git
     version: main
