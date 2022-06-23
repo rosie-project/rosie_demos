@@ -68,7 +68,6 @@ Type `colcon list` inside the workspace and you should see:
 
     ~/erlang_ws » colcon list
     rosie_demos	src/rosie_demos	(rebar3)
-    rosie_demos_msgs	src/rosie_demos_msgs	(ros.ament_cmake)
 
 If the output is something like this now you can build your workspace using `colcon`:
 
