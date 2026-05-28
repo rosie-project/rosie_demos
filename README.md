@@ -1,3 +1,7 @@
+# IMPORTANT ⚠️
+
+This is repository is not maintained anymore. Please refer to https://github.com/stritzinger/rosie_demos for updates and contributions.
+
 # ROSIE DEMOS
 
 These demos are very similar to a few popular ROS2 example packages.
